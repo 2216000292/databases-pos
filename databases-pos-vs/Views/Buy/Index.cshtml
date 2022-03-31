@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "product list";
+}
+
+<div class="text-center">
+    <div class="row">
+        <div class="col-4">
+            <div class="input-group ">
+                <input type="text" class="form-control" value="@ViewBag.Key" id="key" />
+                <button class="btn btn-primary" style="color:#fff;" onclick="window.location.href='/Buy/index?key='+$('#key').val()">Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Size
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    foreach (Products item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.name
+                            </td>
+                            <td>
+                                @item.size
+                            </td>
+                            <td>
+                                @item.price
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-primary" style="color:#fff;" href="#">Buy</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
